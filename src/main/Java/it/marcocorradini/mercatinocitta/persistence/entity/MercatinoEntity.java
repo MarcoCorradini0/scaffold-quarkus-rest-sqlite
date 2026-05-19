@@ -32,43 +32,67 @@ public class MercatinoEntity  {
     @Column(nullable = false)
     private Integer banchiAssegnati=0;
 
-    public MercatinoEntity() {}
-    public Long getId(){
+    public Long getId() {
         return id;
     }
-    public String getTitolo(){
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitolo() {
         return titolo;
-    } public void setTitolo(String titolo){
-        this.titolo=titolo;
     }
-    public String getDescrizione(){
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public String getDescrizione() {
         return descrizione;
-    } public void setDescrizione(String descrizione){
-        this.descrizione=descrizione;
     }
-    public LocalDateTime getDataOra(){
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public LocalDateTime getDataOra() {
         return dataOra;
-    } public void setDataOra(LocalDateTime dataOra){
-        this.dataOra=dataOra;
     }
-    public String getPiazza(){
+
+    public void setDataOra(LocalDateTime dataOra) {
+        this.dataOra = dataOra;
+    }
+
+    public String getPiazza() {
         return piazza;
-    } public void setPiazza(String piazza){
-        this.piazza=piazza;
     }
-    public Tema getTema(){
+
+    public void setPiazza(String piazza) {
+        this.piazza = piazza;
+    }
+
+    public Tema getTema() {
         return tema;
-    } public void setTema(Tema tema){
-        this.tema=tema;
     }
-    public Integer getBanchiTotali(){
+
+    public void setTema(Tema tema) {
+        this.tema = tema;
+    }
+
+    public Integer getBanchiTotali() {
         return banchiTotali;
-    } public void setBanchiTotali(Integer banchiTotali){
-        this.banchiTotali=banchiTotali;
     }
-    public Integer getBanchiAssegnati(){
+
+    public void setBanchiTotali(Integer banchiTotali) {
+        this.banchiTotali = banchiTotali;
+    }
+
+    public Integer getBanchiAssegnati() {
         return banchiAssegnati;
-    } public void setBanchiAssegnati(Integer banchiAssegnati){
-        this.banchiAssegnati=banchiAssegnati;
+    }
+
+    public void setBanchiAssegnati(Integer banchiAssegnati) {
+        this.banchiAssegnati = banchiAssegnati;
     }
 }

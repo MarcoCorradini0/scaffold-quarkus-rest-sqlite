@@ -13,6 +13,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @Path("/api/mercatini")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,15 +26,24 @@ public class MercatinoResource {
     public List<MercatinoEntity> getAll(){
         return repository.listAll();
     }
+
     @GET // By id
     @Path("/{id}")
-    public MercatinoEntity getById(@PathParam("id") Long id){
-        return repository.findById(id);
+    public Response getById(@PathParam("id") Long id){
+        MercatinoEntity m=repository.findById(id);
+        if (m==null){
+            return Response.status(404).build();
+        }
+        return Response.ok(m).build();
     }
 
     @POST // Create
     @Transactional
-    public void create(MercatinoEntity entity){
+    public Response create(MercatinoEntity entity){
         repository.persist(entity);
+        // o solo return
+        return Response.status(Response.Status.CREATED)
+                .entity(entity)
+                .build();
     }
 }
