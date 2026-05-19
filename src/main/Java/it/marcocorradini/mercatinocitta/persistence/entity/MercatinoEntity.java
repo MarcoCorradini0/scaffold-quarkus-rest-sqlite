@@ -31,7 +31,7 @@ public class MercatinoEntity  {
     @Column(nullable = false)
     private Integer banchiAssegnati=0;
 
-    public MercatinoEntity(){}
+    public MercatinoEntity() {}
     public Long getId(){
         return id;
     }
