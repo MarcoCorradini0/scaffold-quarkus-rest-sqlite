@@ -41,6 +41,11 @@ public class MercatinoEntity  {
     } public void setTitolo(String titolo){
         this.titolo=titolo;
     }
+    public String getDescrizione(){
+        return descrizione;
+    } public void setDescrizione(String descrizione){
+        this.descrizione=descrizione;
+    }
     public LocalDateTime getDataOra(){
         return dataOra;
     } public void setDataOra(LocalDateTime dataOra){
