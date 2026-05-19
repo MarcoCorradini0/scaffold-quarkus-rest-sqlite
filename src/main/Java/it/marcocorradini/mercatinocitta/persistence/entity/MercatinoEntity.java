@@ -61,7 +61,7 @@ public class MercatinoEntity  {
         this.banchiTotali=banchiTotali;
     }
     public Integer getBanchiAssegnati(){
-        return banchiTotali;
+        return banchiAssegnati;
     } public void setBanchiAssegnati(Integer banchiAssegnati){
         this.banchiAssegnati=banchiAssegnati;
     }
