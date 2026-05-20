@@ -23,7 +23,29 @@ public class MercatinoResource {
     MercatinoRepository repository;
 
     @GET // All
-    public List<MercatinoEntity> getAll(){
+    public List<MercatinoEntity> getAll(
+            @QueryParam("tema") String tema,
+            @QueryParam("search") String search
+    ){
+        if (tema!=null && search!=null){
+            return repository.find(
+                    "lower(titolo) like lower(?1) and tema= ?2",
+                    "%" + search + "%",
+                    Tema.valueOf(tema.toUpperCase())
+            ).list();
+        }
+        if (tema!=null){
+            return repository.find(
+                    "tema",
+                    Tema.valueOf(tema.toUpperCase())
+            ).list();
+        }
+        if (search!=null){
+            return repository.find(
+                    "lower(titolo) like lower(?1)",
+                    "%" + search + "%"
+            ).list();
+        }
         return repository.listAll();
     }
 
@@ -33,6 +55,8 @@ public class MercatinoResource {
         MercatinoEntity m=repository.findById(id);
         if (m==null){
             return Response.status(404).build();
+        } else {
+            return Response.ok(m).build();
         }
         return Response.ok(m).build();
     }
